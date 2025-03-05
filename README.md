@@ -207,14 +207,17 @@ output "ec2_public_ip" {
 ## Melhoria de Segurança
 ### Restrição do Acesso SSH:
 Foi criada a variável allowed_ssh_cidr para que o acesso via SSH (porta 22) seja permitido apenas de um IP específico. Isso evita o risco de exposição do servidor a qualquer origem.
+
 Justificativa: Restringir o acesso SSH minimiza a superfície de ataque, aumentando a segurança da instância.
 
 ### Uso do vpc_security_group_ids:
 Na definição da instância EC2, o atributo security_groups foi substituído por vpc_security_group_ids, o que é a prática recomendada para recursos em VPC.
+
 Justificativa: Garante uma associação mais robusta e clara dos grupos de segurança à instância.
 
 ### Uso de locals para Padronização de Nomes:
 A definição do local.name_prefix simplifica e padroniza a nomeação dos recursos, facilitando a manutenção e a identificação dos mesmos na AWS.
+
 Justificativa: A consistência nos nomes ajuda na organização e rastreabilidade dos recursos, especialmente em ambientes com múltiplos componentes.
 
 ## Automação da Instalação do Nginx
